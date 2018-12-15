@@ -70,7 +70,7 @@ def all_procedure(debug_enabled,
         date_time = time.strftime("%Y-%m-%d-%H%M%S")
         s3 = boto3.resource('s3')
         logger.info('Uploading backup to s3 bucket')
-        s3.Object(aws_s3_bucket, 'k8s_%s_%s.zip' % (prefix,date_time)).put(Body=open('/tmp/%s.zip' % tmp_dir, 'rb'))
+        s3.Object(aws_s3_bucket, '%s_%s.zip' % (prefix,date_time)).put(Body=open('/tmp/%s.zip' % tmp_dir, 'rb'))
 
     # cleanup temp directory
     def clean_temp():
